@@ -1,0 +1,25 @@
+<div class="w-full flex h-full">
+<div class="flex flex-column  w-full">
+
+  <div>Кашевар v1</div>
+    <p-calendar class="flex w-full mb-2"
+                [touchUI]="true"
+                (onSelect)="getDateStart($event)"
+                [showTime]="true"
+                inputId="time">
+    </p-calendar>
+
+
+    <p-calendar class="w-full flex mb-2"
+                [touchUI]="true"
+                (onSelect)="getDateEnd($event)"
+                [showTime]="true"
+                inputId="time">
+    </p-calendar>
+
+
+
+  <p-button label="Рассчитать" (onClick)="calcDiff()" styleClass="p-button-help w-full"></p-button>
+
+</div>
+</div>
