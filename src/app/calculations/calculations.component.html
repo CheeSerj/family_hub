@@ -1,25 +1,25 @@
-<div class="w-full flex h-full">
-<div class="flex flex-column  w-full">
+<div class="w-full flex align-items-center justify-content-center flex h-full">
+  <div class="flex flex-column align-items-center justify-content-center h-full w-full">
 
-  <div>Кашевар v1</div>
-    <p-calendar class="flex w-full mb-2"
+    <div class="mb-2">Кашевар v1</div>
+    <p-calendar class=" mb-2"
+                styleClass="flex align-items-center w-17rem"
                 [touchUI]="true"
                 (onSelect)="getDateStart($event)"
                 [showTime]="true"
                 inputId="time">
     </p-calendar>
 
-
-    <p-calendar class="w-full flex mb-2"
+    <p-calendar class="mb-2"
+                styleClass="flex align-items-center w-17rem"
                 [touchUI]="true"
                 (onSelect)="getDateEnd($event)"
                 [showTime]="true"
                 inputId="time">
     </p-calendar>
-
-
-
-  <p-button label="Рассчитать" (onClick)="calcDiff()" styleClass="p-button-help w-full"></p-button>
-
-</div>
+    <div class="flex justify-content-between align-items-center w-17rem">
+      <p-button icon="pi pi-arrow-circle-left" label="Назад" (onClick)="goToMenu()" styleClass="p-button-help mr-3"></p-button>
+      <p-button icon="pi pi-calculator" class="flex" label="Рассчитать" (onClick)="calcDiff()" styleClass="p-button-help w-full"></p-button>
+    </div>
+  </div>
 </div>

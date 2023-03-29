@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-calculations',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CalculationsComponent implements OnInit {
   public dateStart!: any
   public dateEnd!: any
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,10 @@ export class CalculationsComponent implements OnInit {
   }
   public getDateEnd(event: any){
     this.dateEnd = event
+  }
+
+  public goToMenu() {
+    this.router.navigate(['/']);
   }
 
   public calcDiff(): void {
