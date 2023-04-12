@@ -1,23 +1,27 @@
-<div class="flex align-items-center flex-column">
-<p-table selectionMode="single"  [value]="table" responsiveLayout="scroll">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Вода на пачке</th>
-      <th>Наливаю воды</th>
-      <th>Смесь на пачке</th>
-      <th>Я делаю смеси</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-product>
-    <tr [pSelectableRow]="product">
-      <td>{{product.countWater}}</td>
-      <td>{{product.water}}</td>
-      <td>{{product.inPack}}</td>
-      <td>{{product.iDo}}</td>
-    </tr>
-  </ng-template>
-</p-table>
-<div class="flex align-items-center">
-  <p-button icon="pi pi-arrow-circle-left" label="Назад" (onClick)="goToMenu()" styleClass=" w-21rem mt-2"></p-button>
-</div>
+<mat-toolbar class="bg-pink-200 flex align-items-center justify-content-center toolbar-food">
+
+  <h2 class="flex align-items-center justify-content-center">Таблица</h2>
+</mat-toolbar>
+<div class="flex align-items-center flex-column bg-pink-50 " style="height: 91%">
+  <p-table class="h-full" selectionMode="single" [value]="table" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Вода на пачке</th>
+        <th>Наливаю воды</th>
+        <th>Смесь на пачке</th>
+        <th>Я делаю смеси</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr [pSelectableRow]="product">
+        <td>{{product.countWater}}</td>
+        <td>{{product.water}}</td>
+        <td>{{product.inPack}}</td>
+        <td>{{product.iDo}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div class="flex align-items-center">
+    <p-button icon="pi pi-arrow-circle-left" label="Назад" (onClick)="goToMenu()" styleClass=" w-21rem mb-6"></p-button>
+  </div>
 </div>

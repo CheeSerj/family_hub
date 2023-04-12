@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from "@angular/router";
 
 export interface Table{
@@ -11,7 +11,8 @@ export interface Table{
 @Component({
   selector: 'app-food-table',
   templateUrl: './food-table.component.html',
-  styleUrls: ['./food-table.component.scss']
+  styleUrls: ['./food-table.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FoodTableComponent implements OnInit {
 
