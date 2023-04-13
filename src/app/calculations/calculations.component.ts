@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 
@@ -6,18 +6,23 @@ import {FormControl, FormGroup} from "@angular/forms";
   selector: 'app-calculations',
   templateUrl: './calculations.component.html',
   styleUrls: ['./calculations.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
-export class CalculationsComponent implements OnInit {
+export class CalculationsComponent implements OnInit, OnDestroy {
   public dateForm: FormGroup = new FormGroup({
     dateStart: new FormControl(null),
     dateEnd: new FormControl(null)
   })
 
+  constructor(public router: Router) {
+  }
 
-  constructor(public router: Router) { }
+  ngOnDestroy(): void {
+    document.body.style.background = "#ffffff"
+  }
 
   ngOnInit(): void {
+    document.body.style.background = "var(--purple-100)"
   }
 
 
@@ -28,7 +33,6 @@ export class CalculationsComponent implements OnInit {
   public calcDiff(): void {
     const dateStart = this.dateForm.get('dateStart')?.value
     const dateEnd = this.dateForm.get('dateEnd')?.value
-    console.log(this.dateForm.get('dateStart')?.value)
     let DIFF = new Date(dateEnd).getTime() - new Date(dateStart).getTime()
 
     const DAY_DIFF = Math.floor(DIFF/1000/60/60/24);

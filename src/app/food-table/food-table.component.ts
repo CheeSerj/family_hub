@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, DoCheck, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from "@angular/router";
 
 export interface Table{
@@ -12,9 +12,9 @@ export interface Table{
   selector: 'app-food-table',
   templateUrl: './food-table.component.html',
   styleUrls: ['./food-table.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
-export class FoodTableComponent implements OnInit {
+export class FoodTableComponent implements OnInit, OnDestroy {
 
   public table: Table[] = [
     {water: '30гр', countWater: '30гр', inPack: '4,4гр', iDo: '5гр'},
@@ -28,7 +28,12 @@ export class FoodTableComponent implements OnInit {
 
   constructor(public router: Router) { }
 
+  ngOnDestroy(): void {
+    document.body.style.background = "#ffffff"
+    }
+
   ngOnInit(): void {
+    document.body.style.background = "var(--pink-200)"
   }
 
   public goToMenu() {

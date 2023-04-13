@@ -6,23 +6,25 @@
   <div class="flex flex-column align-items-center justify-content-center h-full w-full">
 
     <div class="flex align-items-center justify-content-center flex-column">
-    <form [formGroup]="dateForm">
-      <input class="flex mb-2 w-17rem h-2rem text-sm" formControlName="dateStart" type="datetime-local">
-      <input class="flex mb-2 w-17rem h-2rem text-sm" placeholder="Дата готовности" formControlName="dateEnd" type="datetime-local">
-    </form>
+      <form [formGroup]="dateForm">
+        <input class="flex mb-2 w-17rem h-2rem text-sm" formControlName="dateStart" type="datetime-local">
+        <input class="flex mb-2 w-17rem h-2rem text-sm" formControlName="dateEnd" type="datetime-local">
+      </form>
     </div>
 
     <div class="flex justify-content-between align-items-center w-17rem">
       <p-button icon="pi pi-arrow-circle-left"
+                class="calc-button"
                 label="Назад"
                 (onClick)="goToMenu()"
-                styleClass="p-button-help mr-3">
+                styleClass=" mr-3">
       </p-button>
       <p-button icon="pi pi-calculator"
-                class="flex"
+                [disabled]="!dateForm.value.dateStart && !dateForm.value.dateEnd"
+                class="flex calc-button"
                 label="Рассчитать"
                 (onClick)="calcDiff()"
-                styleClass="p-button-help w-full">
+                styleClass="w-full">
       </p-button>
     </div>
   </div>

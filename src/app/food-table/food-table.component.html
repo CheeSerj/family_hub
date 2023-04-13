@@ -1,8 +1,11 @@
-<mat-toolbar class="bg-pink-200 flex align-items-center justify-content-center toolbar-food">
-
-  <h2 class="flex align-items-center justify-content-center">Таблица</h2>
-</mat-toolbar>
-<div class="flex align-items-center flex-column bg-pink-50 " style="height: 91%">
+<div class="flex ">
+<div class="w-full flex align-items-center justify-content-center flex bg-purple-50 flex-column">
+  <mat-toolbar class="bg-pink-200 flex align-items-center justify-content-center">
+    <h2 class="flex align-items-center justify-content-center">Таблица</h2>
+  </mat-toolbar>
+</div>
+</div>
+<div class="flex align-items-center flex-column bg-pink-50" style="height: 92%">
   <p-table class="h-full" selectionMode="single" [value]="table" responsiveLayout="scroll">
     <ng-template pTemplate="header">
       <tr>
@@ -22,6 +25,11 @@
     </ng-template>
   </p-table>
   <div class="flex align-items-center">
-    <p-button icon="pi pi-arrow-circle-left" label="Назад" (onClick)="goToMenu()" styleClass=" w-21rem mb-6"></p-button>
+    <p-button icon="pi pi-arrow-circle-left"
+              label="Назад"
+              (onClick)="goToMenu()"
+              styleClass=" w-21rem  mb-6"
+              class="btn-back">
+    </p-button>
   </div>
 </div>
