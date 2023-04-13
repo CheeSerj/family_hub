@@ -6,7 +6,7 @@ import {FoodTableComponent} from "./food-table/food-table.component";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'menu'},
-  {path: 'menu', component: MenuComponent},
+  {path: 'menu', component: MenuComponent },
   {path: 'calculate', component: CalculationsComponent},
   {path: 'table', component: FoodTableComponent}
 ];
