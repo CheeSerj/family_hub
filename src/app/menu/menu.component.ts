@@ -14,10 +14,10 @@ export class MenuComponent implements OnInit {
   }
 
   public goToCalculate() {
-    this.router.navigate(['calculate']);
+    this.router.navigate(['calculate']).catch();
   }
 
   public goToTable() {
-    this.router.navigate(['table']);
+    this.router.navigate(['table']).catch();
   }
 }

@@ -34,7 +34,7 @@ export class FoodTableComponent implements OnInit, OnDestroy {
   }
 
   public goToMenu() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).catch();
   }
 
 }

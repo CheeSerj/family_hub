@@ -27,25 +27,36 @@ export class CalculationsComponent implements OnInit, OnDestroy {
 
 
   public goToMenu() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).catch();
   }
 
   public calcDiff(): void {
     const dateStart = this.dateForm.get('dateStart')?.value
     const dateEnd = this.dateForm.get('dateEnd')?.value
     let DIFF = new Date(dateEnd).getTime() - new Date(dateStart).getTime()
+    alert(this.convertTimeStampToDateString(DIFF))
+  }
 
-    const DAY_DIFF = Math.floor(DIFF/1000/60/60/24);
-    DIFF -= DAY_DIFF*1000*60*60*24
-
-    const HOURS_DIFF = Math.floor(DIFF/1000/60/60);
-    DIFF -= HOURS_DIFF*1000*60*60
-
-    const MINUTES_DIFF = Math.floor(DIFF/1000/60);
-    DIFF -= MINUTES_DIFF*1000*60
-
-    const SEC_DIFF = Math.floor(DIFF/1000);
-
-    alert(HOURS_DIFF + ' Часов ' + MINUTES_DIFF + ' Минут ');
+  public convertTimeStampToDateString(timestamp: number): string{
+    if (timestamp > 0){
+      let result = '';
+      const timestampValue: { [key: string]: number} = {
+        days: Math.floor(timestamp / (1000 * 3600 * 24)),
+        hours: Math.floor((timestamp / (1000 * 3600)) % 24),
+        minutes: Math.floor((timestamp / 1000 / 60) % 60)
+      };
+      const translate: {[key: string]: string} = {
+        days: 'дн',
+        hours: 'ч',
+        minutes: 'мин'
+      };
+      Object.keys(timestampValue).forEach(key => {
+        if (timestampValue[key] !== 0){
+          result += timestampValue[key] + translate[key] + ' ';
+        }
+      });
+      return result;
+    }
+    return ''
   }
 }
