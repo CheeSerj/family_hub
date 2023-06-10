@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "calculate-timer": {
+    "family_hub": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -35,7 +35,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/calculate-timer",
+            "outputPath": "dist/family_hub",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -92,10 +92,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "calculate-timer:build:production"
+              "browserTarget": "family_hub:build:production"
             },
             "development": {
-              "browserTarget": "calculate-timer:build:development"
+              "browserTarget": "family_hub:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,7 +103,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "calculate-timer:build"
+            "browserTarget": "family_hub:build"
           }
         },
         "test": {
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "calculate-timer"
+  "defaultProject": "family_hub"
 }

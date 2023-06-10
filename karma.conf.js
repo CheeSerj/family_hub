@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/calculate-timer'),
+      dir: require('path').join(__dirname, './coverage/family_hub'),
       subdir: '.',
       reporters: [
         { type: 'html' },
