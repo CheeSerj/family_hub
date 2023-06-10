@@ -8,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestro
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartsLayoutComponent implements OnInit, OnDestroy {
-  public checked = true;
+  public switchCalendar = true;
 
   ngOnDestroy(): void {
     document.body.style.background = '#ffffff';

@@ -20,6 +20,6 @@ export class FoodTableComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    document.body.style.background = 'var(--pink-200)';
+    document.body.style.background = 'var(--pink-100)';
   }
 }

@@ -1,8 +1,12 @@
-<p-table class="h-full" selectionMode="single" [value]="table" responsiveLayout="scroll">
+<p-table class="h-full table-bg" selectionMode="single" [value]="table" responsiveLayout="scroll">
   <ng-template pTemplate="header">
     <tr>
-      <th>Количество воды</th>
-      <th>Количество смеси</th>
+      <th>
+        <span class="text-base font-semibold flex justify-content-center">Количество воды</span>
+      </th>
+      <th>
+        <span class="text-base font-semibold flex justify-content-center">Количество смеси</span>
+      </th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-product>
