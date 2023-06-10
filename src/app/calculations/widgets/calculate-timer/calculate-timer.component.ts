@@ -8,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalculateTimerComponent implements OnInit {
+export class CalculateTimerComponent {
   public dateForm: FormGroup = new FormGroup({
     dateStart: new FormControl(null),
     dateEnd: new FormControl(null)
