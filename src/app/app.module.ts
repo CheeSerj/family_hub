@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ChartsModule } from './charts/charts.module';
 import { FoodTableModule } from './food-table/food-table.module';
 import { CalculationsModule } from './calculations/calculations.module';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -30,9 +32,10 @@ import { CalculationsModule } from './calculations/calculations.module';
     MatButtonModule,
     FoodTableModule,
     ChartsModule,
-    CalculationsModule
+    CalculationsModule,
+    ToastModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'Ru' }],
+  providers: [MessageService, { provide: LOCALE_ID, useValue: 'Ru' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
