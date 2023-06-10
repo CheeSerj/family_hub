@@ -1,36 +1,16 @@
 <div class="flex ">
   <div class="w-full flex align-items-center justify-content-center flex bg-purple-50 flex-column">
     <mat-toolbar class="bg-pink-200 flex align-items-center justify-content-center">
-      <h2 class="flex align-items-center justify-content-center">Смесь</h2>
+      <h2 class="flex align-items-center justify-content-center">Таблица расчета смеси</h2>
     </mat-toolbar>
   </div>
 </div>
 <div class="flex align-items-center flex-column bg-pink-50" style="height: 92%">
-  <p-table class="h-full" selectionMode="single" [value]="table" responsiveLayout="scroll">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Количество воды</th>
-        <th>Количество смеси</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-      <tr [pSelectableRow]="product">
-        <td>
-          <span class="flex justify-content-center">
-            {{product.water}}
-          </span>
-        </td>
-        <td>
-          <span class="flex justify-content-center">
-            {{product.blend}}
-          </span></td>
-      </tr>
-    </ng-template>
-  </p-table>
+  <app-proportion-table></app-proportion-table>
   <div class="flex align-items-center">
     <p-button icon="pi pi-arrow-circle-left"
               label="Назад"
-              (onClick)="goToMenu()"
+              routerLink="/"
               styleClass=" w-21rem  mb-6"
               class="btn-back">
     </p-button>

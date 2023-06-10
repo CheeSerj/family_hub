@@ -1,0 +1,10 @@
+@mixin card {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 14px;
+}
+
+.toolbar{
+  -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}

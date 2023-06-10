@@ -1,0 +1,51 @@
+.chart-button{
+  .p-button{
+    background: var(--teal-200) !important;
+    border: 1px solid var(--teal-200) !important;
+    border-radius: 8px;
+  }
+  .p-button:focus{
+    box-shadow: none;
+  }
+}
+@import "src/app/app.component";
+
+.card{
+  width: 320px;
+  height: 172px;
+  @include card;
+  background: #d6f1ee;
+}
+
+.custom-calendar{
+  @include card;
+  width: 320px;
+  .p-calendar .p-datepicker{
+    background: #d6f1ee !important;
+  }
+  .p-datepicker .p-datepicker-header{
+    background: #d6f1ee !important;
+  }
+  .p-datepicker table{
+    background: #d6f1ee !important;
+  }
+  .p-datepicker-inline{
+    background: #d6f1ee !important;
+    border-radius: 10px;
+  }
+  .p-datepicker table td > span.p-highlight{
+    background: #91d2cc !important;
+  }
+
+  .p-datepicker table td.p-datepicker-today > span {
+    background: #bddeda;
+    color: #495057;
+    border-color: transparent;
+  }
+}
+
+.switcher{
+  .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background: var(--teal-200) !important;
+  }
+}

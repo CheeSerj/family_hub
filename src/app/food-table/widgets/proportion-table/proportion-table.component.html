@@ -1,0 +1,21 @@
+<p-table class="h-full" selectionMode="single" [value]="table" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Количество воды</th>
+      <th>Количество смеси</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr [pSelectableRow]="product">
+      <td>
+          <span class="flex justify-content-center">
+            {{product.water}}
+          </span>
+      </td>
+      <td>
+          <span class="flex justify-content-center">
+            {{product.blend}}
+          </span></td>
+    </tr>
+  </ng-template>
+</p-table>

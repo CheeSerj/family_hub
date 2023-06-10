@@ -1,0 +1,31 @@
+<div class="w-full flex align-items-center justify-content-center flex h-full bg-teal-100 flex-column">
+  <mat-toolbar class="bg-teal-100 flex align-items-center w-full toolbar">
+    <p-button icon="pi pi-arrow-circle-left"
+              class="chart-button justify-content-start"
+              routerLink="/"
+              styleClass=" mr-3">
+    </p-button>
+    <h2 class="flex align-items-center w-full mr-5 justify-content-center">Графики роста и веса</h2>
+      <p-inputSwitch class="flex align-items-center switcher" styleClass="switcher" [(ngModel)]="checked"></p-inputSwitch>
+  </mat-toolbar>
+  <div class="flex flex-column align-items-center justify-content-center h-full mb-4 w-full">
+    <div class="flex flex-column" *ngIf="checked">
+      <div class="flex mb-4">
+        <app-growth-chart></app-growth-chart>
+      </div>
+      <div class="flex mb-4">
+        <app-weight-chart></app-weight-chart>
+      </div>
+    </div>
+    <div class="flex" *ngIf="!checked">
+      <app-calendar-leaps-in-evolutions></app-calendar-leaps-in-evolutions>
+    </div>
+  </div>
+  <div class="flex align-items-center">
+    <p-button icon="pi pi-plus"
+              label="Добавить показатели"
+              styleClass=" w-21rem  mb-6"
+              class="chart-button">
+    </p-button>
+  </div>
+</div>

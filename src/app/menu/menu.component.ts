@@ -1,17 +1,13 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
-
-  constructor(private router: Router) { }
-
-  public ngOnInit(): void {
-  }
+export class MenuComponent {
+  constructor(private router: Router) {}
 
   public goToCalculate() {
     this.router.navigate(['calculate']).catch();
@@ -19,5 +15,9 @@ export class MenuComponent implements OnInit {
 
   public goToTable() {
     this.router.navigate(['table']).catch();
+  }
+
+  public goToCharts() {
+    this.router.navigate(['charts']).catch();
   }
 }

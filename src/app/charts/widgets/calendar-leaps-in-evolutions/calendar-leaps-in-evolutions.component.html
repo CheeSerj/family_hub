@@ -1,0 +1,20 @@
+<div class="flex justify-content-center">
+  <p-calendar
+    class="max-w-full"
+    styleClass="custom-calendar"
+    selectionMode="multiple"
+    [firstDayOfWeek]="1"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    [readonlyInput]="true"
+    [showIcon]="true"
+    yearRange="2022:2025"
+    icon="pi pi-calendar"
+    [(ngModel)]="dateRange"
+    [inline]="true"
+    (onSelect)="selectDate(dateRange)"
+    [showButtonBar]="true"
+    (select)="selectDate(dateRange)"
+    (onClose)="selectDate(dateRange)">
+  </p-calendar>
+</div>
