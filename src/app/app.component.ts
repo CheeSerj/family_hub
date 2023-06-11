@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 import { PRIME_CONFIG } from './prime-config';
 import { registerLocaleData } from '@angular/common';
 import Ru from '@angular/common/locales/ru';
@@ -11,21 +11,10 @@ import Ru from '@angular/common/locales/ru';
 })
 export class AppComponent implements OnInit {
   title = 'Дашкины штучки';
-  constructor(private primeConfig: PrimeNGConfig, private messageService: MessageService) {}
+  constructor(private primeConfig: PrimeNGConfig) {}
 
   public ngOnInit(): void {
     this.primeConfig.setTranslation(PRIME_CONFIG);
     registerLocaleData(Ru);
-    setTimeout(() => {
-      this.test();
-    }, 2000);
-  }
-  public test() {
-    this.messageService.add({
-      severity: 'error',
-      summary: `сообщение`,
-      detail: `детали`,
-      key: 'app'
-    });
   }
 }

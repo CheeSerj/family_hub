@@ -1,13 +1,37 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { MessageService } from 'primeng/api';
+import { NotificationService } from '../shared/services/notification.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent {
-  constructor(private router: Router) {}
+export class MenuComponent implements OnDestroy, OnInit {
+  public getNotify!: Observable<boolean>;
+  public subscription: Subscription = new Subscription();
+
+  constructor(private router: Router, private messageService: MessageService, public notification: NotificationService) {}
+
+  ngOnInit(): void {
+    this.getNotify = this.notification.checkValidDate;
+    this.subscription.add(
+      this.getNotify.subscribe((res) => {
+        res ? this.sendNotify() : false;
+      })
+    );
+  }
+
+  public sendNotify(): void {
+    this.messageService.add({
+      severity: 'info',
+      summary: `Сейчас идет критическая неделя скачка развития`,
+      detail: 'Возможен бунт 😂',
+      key: 'app'
+    });
+  }
 
   public goToCalculate() {
     this.router.navigate(['calculate']).catch();
@@ -19,5 +43,10 @@ export class MenuComponent {
 
   public goToCharts() {
     this.router.navigate(['charts']).catch();
+  }
+
+  ngOnDestroy(): void {
+    this.messageService.clear('app');
+    this.subscription.unsubscribe();
   }
 }
