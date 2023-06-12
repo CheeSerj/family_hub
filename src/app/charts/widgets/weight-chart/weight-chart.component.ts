@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { DatabaseService } from '../../../shared/services/database.service';
+import { BarChart, ChartDataFromBD } from '../../types/charts.interfaces';
 
 @Component({
   selector: 'app-weight-chart',
@@ -7,24 +12,22 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WeightChartComponent implements OnInit {
-  public multiAxisData: any;
+export class WeightChartComponent implements OnInit, OnDestroy {
+  public multiAxisData!: BarChart;
   public multiAxisOptions: any;
+  public chartWeightAxisData!: Observable<any>;
+  public subscription: Subscription = new Subscription();
+
+  constructor(private firestore: Firestore, private databaseService: DatabaseService) {}
 
   ngOnInit(): void {
-    this.multiAxisData = {
-      labels: ['Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август'],
-      datasets: [
-        {
-          label: 'Вес',
-          backgroundColor: '#f0faf4',
-          order: 1,
-          yAxisID: 'y1',
-          data: [2.948, 3.5, 4.4, 5.8, 6.5, 7.8, 8.5, 8.85, 9.6, 10.15],
-          hoverBackgroundColor: '#91d2cc'
-        }
-      ]
-    };
+    const collectionsInstance = collection(this.firestore, 'weight-chart');
+    this.chartWeightAxisData = collectionData(collectionsInstance);
+    this.subscription.add(
+      this.chartWeightAxisData
+        .pipe(map((res: ChartDataFromBD[]) => this.databaseService.parseDataForChart(res, 'Вес')))
+        .subscribe((res) => (this.multiAxisData = res))
+    );
 
     this.multiAxisOptions = {
       plugins: {
@@ -76,5 +79,9 @@ export class WeightChartComponent implements OnInit {
         }
       }
     };
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

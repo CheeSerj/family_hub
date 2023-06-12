@@ -17,6 +17,10 @@ import { CalculationsModule } from './calculations/calculations.module';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { NotificationService } from './shared/services/notification.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -34,7 +38,10 @@ import { NotificationService } from './shared/services/notification.service';
     FoodTableModule,
     ChartsModule,
     CalculationsModule,
-    ToastModule
+    ToastModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirestore(() => getFirestore()),
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [
     MessageService,

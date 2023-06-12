@@ -17,11 +17,7 @@ export class MenuComponent implements OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.getNotify = this.notification.checkValidDate;
-    this.subscription.add(
-      this.getNotify.subscribe((res) => {
-        res ? this.sendNotify() : false;
-      })
-    );
+    this.subscription.add(this.getNotify.subscribe((res) => (res ? this.sendNotify() : false)));
   }
 
   public sendNotify(): void {
