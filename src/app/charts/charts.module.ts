@@ -9,12 +9,26 @@ import { RouterModule } from '@angular/router';
 import { ChartModule } from 'primeng/chart';
 import { CalendarLeapsInEvolutionsComponent } from './widgets';
 import { CalendarModule } from 'primeng/calendar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ModalAddDataForChartsComponent } from './components';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [ChartsLayoutComponent, GrowthChartComponent, WeightChartComponent, CalendarLeapsInEvolutionsComponent, ModalAddDataForChartsComponent],
-  imports: [CommonModule, MatToolbarModule, ButtonModule, RouterModule, ChartModule, CalendarModule, FormsModule, InputSwitchModule]
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    ButtonModule,
+    RouterModule,
+    ChartModule,
+    CalendarModule,
+    FormsModule,
+    InputSwitchModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    InputTextModule
+  ]
 })
 export class ChartsModule {}

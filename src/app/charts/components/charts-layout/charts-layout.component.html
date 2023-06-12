@@ -23,6 +23,8 @@
   </div>
   <div class="flex align-items-center">
     <p-button icon="pi pi-plus"
+              [disabled]="!switchCalendar"
+              (onClick)="openDialogForAddData()"
               label="Добавить показатели"
               styleClass=" w-21rem  mb-6"
               class="chart-button">

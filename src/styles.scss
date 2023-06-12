@@ -1,15 +1,21 @@
 @import 'primeflex/primeflex.scss';
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
 
-.p-toast{
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.p-toast {
   width: 20rem !important;
 }
-.toolbar{
+
+.toolbar {
   -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
   -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
   box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
 }
-
