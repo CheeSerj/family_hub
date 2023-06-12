@@ -1,10 +1,5 @@
-import { ChangeDetectorRef, Component, DoCheck, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-
-export interface Table {
-  water: string;
-  blend: string;
-}
 
 @Component({
   selector: 'app-food-table',

@@ -4,7 +4,7 @@ import { FoodTableComponent } from './food-table.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-import { ProportionTableComponent } from './widgets/proportion-table/proportion-table.component';
+import { ProportionTableComponent } from './widgets';
 import { RouterModule } from '@angular/router';
 
 @NgModule({

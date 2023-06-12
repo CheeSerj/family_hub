@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { Table } from '../../food-table.component';
 
 @Component({
   selector: 'app-proportion-table',
@@ -9,7 +8,7 @@ import { Table } from '../../food-table.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProportionTableComponent {
-  public table: Table[] = [
+  public table: { water: string; blend: string }[] = [
     { water: '30гр', blend: '5гр' },
     { water: '60гр', blend: '9гр' },
     { water: '90гр', blend: '13гр' },

@@ -2,8 +2,8 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestro
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DatabaseService } from '../../../shared/services/database.service';
-import { BarChart, ChartDataFromBD } from '../../types/charts.interfaces';
+import { DatabaseService } from '../../../shared/services';
+import { BarChart, ChartDataFromBD } from '../../types';
 
 @Component({
   selector: 'app-weight-chart',
@@ -20,7 +20,7 @@ export class WeightChartComponent implements OnInit, OnDestroy {
 
   constructor(private firestore: Firestore, private databaseService: DatabaseService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const collectionsInstance = collection(this.firestore, 'weight-chart');
     this.chartWeightAxisData = collectionData(collectionsInstance);
     this.subscription.add(
@@ -81,7 +81,7 @@ export class WeightChartComponent implements OnInit, OnDestroy {
     };
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

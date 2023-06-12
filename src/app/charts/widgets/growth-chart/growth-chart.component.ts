@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { BarChart, ChartDataFromBD } from '../../types/charts.interfaces';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { BarChart, ChartDataFromBD } from '../../types';
 import { Observable, Subscription } from 'rxjs';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { DatabaseService } from '../../../shared/services/database.service';
+import { DatabaseService } from '../../../shared/services';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GrowthChartComponent implements OnInit {
+export class GrowthChartComponent implements OnInit, OnDestroy {
   public multiAxisData!: BarChart;
   public multiAxisOptions: any;
   public chartGrowthAxisData!: Observable<any>;
@@ -20,7 +20,11 @@ export class GrowthChartComponent implements OnInit {
 
   constructor(private firestore: Firestore, private databaseService: DatabaseService) {}
 
-  ngOnInit(): void {
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  public ngOnInit(): void {
     const collectionsInstance = collection(this.firestore, 'growth-chart');
     this.chartGrowthAxisData = collectionData(collectionsInstance);
     this.subscription.add(
