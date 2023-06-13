@@ -1,40 +1,47 @@
-.chart-button{
-  .p-button{
+.chart-button {
+  .p-button {
     background: var(--teal-200) !important;
     border: 1px solid var(--teal-200) !important;
     border-radius: 8px;
   }
-  .p-button:focus{
+
+  .p-button:focus {
     box-shadow: none;
   }
 }
+
 @import "src/app/app.component";
 
-.card{
+.card {
   width: 320px;
   height: 172px;
   @include card;
   background: #d6f1ee;
 }
 
-.custom-calendar{
+.custom-calendar {
   @include card;
   width: 320px;
-  .p-calendar .p-datepicker{
+
+  .p-calendar .p-datepicker {
     background: #d6f1ee !important;
   }
-  .p-datepicker .p-datepicker-header{
+
+  .p-datepicker .p-datepicker-header {
     background: #d6f1ee !important;
   }
-  .p-datepicker table{
+
+  .p-datepicker table {
     background: #d6f1ee !important;
   }
-  .p-datepicker-inline{
+
+  .p-datepicker-inline {
     background: #d6f1ee !important;
     border-radius: 10px;
   }
-  .p-datepicker table td > span.p-highlight{
-    background: #91d2cc !important;
+
+  .p-datepicker table td > span.p-highlight {
+    background: #85cfc8 !important
   }
 
   .p-datepicker table td.p-datepicker-today > span {
@@ -42,13 +49,15 @@
     color: #495057;
     border-color: transparent;
   }
-  .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month{
+
+  .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
     width: 125px;
     height: 30px;
     background: #bddeda;
     color: #495057;
   }
-  .p-datepicker .p-datepicker-header .p-datepicker-title select{
+
+  .p-datepicker .p-datepicker-header .p-datepicker-title select {
     width: 80px;
     height: 30px;
     background: #bddeda;
@@ -56,8 +65,12 @@
   }
 }
 
-.switcher{
+.switcher {
   .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
     background: var(--teal-200) !important;
   }
+  .p-inputswitch .p-focus .p-inputswitch-slider{
+    box-shadow: none !important;
+  }
+
 }

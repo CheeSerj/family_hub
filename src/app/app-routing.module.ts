@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CalculationsComponent } from './calculations/calculations.component';
-import { MenuComponent } from './menu/menu.component';
-import { FoodTableComponent } from './food-table/food-table.component';
+import { CalculationsComponent } from './calculations';
+import { MenuComponent } from './menu';
+import { FoodTableComponent } from './food-table';
 import { ChartsLayoutComponent } from './charts/components';
 
 const routes: Routes = [

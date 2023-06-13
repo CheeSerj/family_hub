@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './menu';
 import { TableModule } from 'primeng/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ChartsModule } from './charts/charts.module';
-import { FoodTableModule } from './food-table/food-table.module';
-import { CalculationsModule } from './calculations/calculations.module';
+import { ChartsModule } from './charts';
+import { FoodTableModule } from './food-table';
+import { CalculationsModule } from './calculations';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { NotificationService } from './shared/services/notification.service';
+import { NotificationService } from './shared/services';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -34,7 +38,10 @@ import { NotificationService } from './shared/services/notification.service';
     FoodTableModule,
     ChartsModule,
     CalculationsModule,
-    ToastModule
+    ToastModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirestore(() => getFirestore()),
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [
     MessageService,

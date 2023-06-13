@@ -1,0 +1,36 @@
+<div class="flex flex-column">
+  <span class="flex text-2xl font-semibold mb-4 align-items-center justify-content-center">Добавить показатели</span>
+  <div class="flex flex-column justify-content-center mb-6">
+    <form class="flex flex-column" [formGroup]="addDataForm">
+      <p-dropdown
+        styleClass="focus-drop"
+        class="flex dd-style mb-4 focus-drop"
+        formControlName="chart"
+        [options]="chartDD"
+        optionLabel="name">
+      </p-dropdown>
+      <p-dropdown
+        styleClass="focus-drop"
+        class="flex dd-style mb-4 focus-drop"
+        formControlName="month"
+        [options]="monthDD"
+        optionLabel="name">
+      </p-dropdown>
+      <input placeholder="Вес/кг | Рост/см" class="dd-style" type="number" pInputText formControlName="params"/>
+    </form>
+  </div>
+  <div class="flex">
+    <p-button label="Отменить"
+              (onClick)="closeDialog()"
+              class="cancel-add-data mr-3"
+              icon="pi pi-times">
+    </p-button>
+    <p-button (onClick)="submitForm()"
+              [disabled]="addDataForm.invalid"
+              label="Добавить"
+              class="chart-button"
+              icon="pi pi-check">
+    </p-button>
+  </div>
+</div>
+

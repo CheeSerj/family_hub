@@ -4,7 +4,7 @@ import { CalculationsComponent } from './calculations.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CalculateTimerComponent } from './widgets/calculate-timer/calculate-timer.component';
+import { CalculateTimerComponent } from './widgets';
 import { RouterModule } from '@angular/router';
 
 @NgModule({

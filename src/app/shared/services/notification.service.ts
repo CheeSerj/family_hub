@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CRITICAL_DATES } from '../infrastructure/consts.dates-from-notify';
+import { CRITICAL_DATES } from '../infrastructure';
 
 @Injectable({
   providedIn: 'root'

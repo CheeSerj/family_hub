@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { BarChart, ChartDataFromBD } from '../../types';
+import { Observable, Subscription } from 'rxjs';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { DatabaseService } from '../../../shared/services';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-growth-chart',
@@ -7,24 +12,26 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GrowthChartComponent implements OnInit {
-  public multiAxisData: any;
+export class GrowthChartComponent implements OnInit, OnDestroy {
+  public multiAxisData!: BarChart;
   public multiAxisOptions: any;
+  public chartGrowthAxisData!: Observable<any>;
+  public subscription: Subscription = new Subscription();
 
-  ngOnInit(): void {
-    this.multiAxisData = {
-      labels: ['Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август'],
-      datasets: [
-        {
-          label: 'Рост',
-          backgroundColor: '#f0faf4',
-          order: 1,
-          yAxisID: 'y1',
-          data: [49, 50, 54, 59, 59.5, 63, 65, 67, 67, 69],
-          hoverBackgroundColor: '#91d2cc'
-        }
-      ]
-    };
+  constructor(private firestore: Firestore, private databaseService: DatabaseService) {}
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  public ngOnInit(): void {
+    const collectionsInstance = collection(this.firestore, 'growth-chart');
+    this.chartGrowthAxisData = collectionData(collectionsInstance);
+    this.subscription.add(
+      this.chartGrowthAxisData
+        .pipe(map((res: ChartDataFromBD[]) => this.databaseService.parseDataForChart(res, 'Рост')))
+        .subscribe((res) => (this.multiAxisData = res))
+    );
 
     this.multiAxisOptions = {
       plugins: {

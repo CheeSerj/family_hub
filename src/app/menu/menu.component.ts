@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { MessageService } from 'primeng/api';
-import { NotificationService } from '../shared/services/notification.service';
+import { NotificationService } from '../shared/services';
 
 @Component({
   selector: 'app-menu',
@@ -17,11 +17,7 @@ export class MenuComponent implements OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.getNotify = this.notification.checkValidDate;
-    this.subscription.add(
-      this.getNotify.subscribe((res) => {
-        res ? this.sendNotify() : false;
-      })
-    );
+    this.subscription.add(this.getNotify.subscribe((res) => (res ? this.sendNotify() : false)));
   }
 
   public sendNotify(): void {
@@ -33,15 +29,15 @@ export class MenuComponent implements OnDestroy, OnInit {
     });
   }
 
-  public goToCalculate() {
+  public goToCalculate(): void {
     this.router.navigate(['calculate']).catch();
   }
 
-  public goToTable() {
+  public goToTable(): void {
     this.router.navigate(['table']).catch();
   }
 
-  public goToCharts() {
+  public goToCharts(): void {
     this.router.navigate(['charts']).catch();
   }
 

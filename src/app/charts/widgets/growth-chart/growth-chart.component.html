@@ -1,3 +1,5 @@
+<ng-container *ngIf="chartGrowthAxisData | async">
 <div class="card p-2">
   <p-chart type="bar" [data]="multiAxisData" [options]="multiAxisOptions"></p-chart>
 </div>
+</ng-container>

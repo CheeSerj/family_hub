@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
-import { DATES_LEAPS } from '../../infrastructure/consts.dates-from-calendar';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { DATES_LEAPS } from '../../infrastructure';
 
 @Component({
   selector: 'app-calendar-leaps-in-evolutions',
