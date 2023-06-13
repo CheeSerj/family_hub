@@ -6,7 +6,10 @@
               styleClass=" mr-3">
     </p-button>
     <h2 class="flex align-items-center w-full mr-5 justify-content-center">Графики и календарь</h2>
-      <p-inputSwitch class="flex align-items-center switcher" styleClass="switcher" [(ngModel)]="switchCalendar"></p-inputSwitch>
+    <p-inputSwitch class="flex align-items-center focus-drop switcher focus-drop"
+                   styleClass="switcher focus-drop"
+                   [(ngModel)]="switchCalendar">
+    </p-inputSwitch>
   </mat-toolbar>
   <div class="flex flex-column align-items-center justify-content-center h-full mb-4 w-full">
     <div class="flex flex-column" *ngIf="switchCalendar">

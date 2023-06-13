@@ -10,8 +10,16 @@
 }
 
 .dd-style{
+  background: #ace7e0;
   .p-dropdown{
     width: 280px !important;
+    background: #ace7e0;
+  }
+  .p-dropdown-panel .p-dropdown-items:not(.p-dropdown-virtualscroll){
+    background: var(--teal-100);
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight{
+    background: var(--teal-200);
   }
   width: 280px;
 }

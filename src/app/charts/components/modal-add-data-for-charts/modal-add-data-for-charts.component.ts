@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { chartsDropDown, monthDropDown } from '../../infrastructure';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FormAddDataOnChart } from '../../types/form-add-data-on-chart.interfaces';
 
 @Component({
   selector: 'app-modal-add-data-for-charts',
@@ -22,13 +23,13 @@ export class ModalAddDataForChartsComponent {
   constructor(public ref: DynamicDialogRef) {}
 
   public submitForm(): void {
-    const submit = {
+    const submit: FormAddDataOnChart = {
       chart: this.addDataForm.get('chart')?.value.key,
       month: this.addDataForm.get('month')?.value.name,
-      params: this.addDataForm.get('params')?.value
+      params: this.addDataForm.get('params')?.value,
+      id: this.addDataForm.get('chart')?.value.id
     };
     this.ref.close(submit);
-    console.log(submit);
   }
 
   public closeDialog() {

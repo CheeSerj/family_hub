@@ -1,11 +1,12 @@
 export interface DropDownItems {
   name: string;
   key: string;
+  id?: string;
 }
 export const chartsDropDown: DropDownItems[] = [
   { name: 'Не выбранно', key: 'notSelected' },
-  { name: 'Рост', key: 'growth' },
-  { name: 'Вес', key: 'weight' }
+  { name: 'Рост', key: 'growth-chart', id: 'JBz6ZAhtsWL3FgkpoGIz' },
+  { name: 'Вес', key: 'weight-chart', id: 'hQUr49vtv6gfxiFG12Uc' }
 ];
 
 export const monthDropDown: DropDownItems[] = [
