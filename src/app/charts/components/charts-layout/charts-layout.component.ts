@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService } from 'primeng/dynamicdialog';
 import { take } from 'rxjs/operators';
 import { ModalAddDataForChartsComponent } from '../modal-add-data-for-charts/modal-add-data-for-charts.component';
 import { collection, collectionData, doc, Firestore, updateDoc } from '@angular/fire/firestore';
-import { DatabaseService } from '../../../shared/services';
 import { Observable, Subscription } from 'rxjs';
 import { FormAddDataOnChart } from '../../types/form-add-data-on-chart.interfaces';
 

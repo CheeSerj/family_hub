@@ -41,6 +41,10 @@ export class MenuComponent implements OnDestroy, OnInit {
     this.router.navigate(['charts']).catch();
   }
 
+  public goToNotes(): void {
+    this.router.navigate(['notes']).catch();
+  }
+
   ngOnDestroy(): void {
     this.messageService.clear('app');
     this.subscription.unsubscribe();

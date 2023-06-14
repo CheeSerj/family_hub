@@ -4,13 +4,15 @@ import { CalculationsComponent } from './calculations';
 import { MenuComponent } from './menu';
 import { FoodTableComponent } from './food-table';
 import { ChartsLayoutComponent } from './charts/components';
+import { NotesComponent } from './notes';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'menu' },
   { path: 'menu', component: MenuComponent },
   { path: 'calculate', component: CalculationsComponent },
   { path: 'table', component: FoodTableComponent },
-  { path: 'charts', component: ChartsLayoutComponent }
+  { path: 'charts', component: ChartsLayoutComponent },
+  { path: 'notes', component: NotesComponent }
 ];
 
 @NgModule({
