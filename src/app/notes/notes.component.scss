@@ -1,0 +1,53 @@
+.tabview-custom{
+  .p-tabview-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+  }
+}
+
+.notes-buttons {
+  .p-button {
+    background: var(--indigo-300) !important;
+    border: 1px solid var(--indigo-300) !important;
+    border-radius: 8px;
+  }
+
+  .p-button:focus {
+    box-shadow: none;
+  }
+}
+
+.test{
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(6.1px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  .p-card .p-card-body{
+    padding:0.5rem;
+  }
+}
+
+.p-tabview .p-tabview-panels {
+  background: none;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link{
+  background: none;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+  background: none;
+  border-color: var(--indigo-200);
+  color: var(--indigo-300);;
+}
+
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus{
+  box-shadow: none;
+}

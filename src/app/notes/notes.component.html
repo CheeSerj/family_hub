@@ -1,10 +1,36 @@
-<div class="w-full flex align-items-center justify-content-center flex h-full bg-indigo-100 flex-column">
+<div class="w-full flex align-items-center flex h-full bg-indigo-100 flex-column">
   <mat-toolbar class="bg-indigo-200 flex align-items-center w-full toolbar">
     <p-button icon="pi pi-arrow-circle-left"
-              class="chart-button justify-content-start"
+              class="notes-buttons justify-content-start"
               routerLink="/"
               styleClass=" mr-3">
     </p-button>
     <h2 class="flex align-items-center w-full mr-5 justify-content-center">Заметки</h2>
   </mat-toolbar>
+  <div class="flex test my-6 mx-3">
+    <p-tabView styleClass="tabview-custom mx-2 my-4 mb-5 text-xs">
+      <p-tabPanel >
+        <ng-template pTemplate="header">
+          <i class="pi pi-file-edit mr-2"></i>
+          <span>Заметки</span>
+        </ng-template>
+      <app-notes-list></app-notes-list>
+      </p-tabPanel>
+      <p-tabPanel header="Header II">
+        <ng-template pTemplate="header">
+          <i class="pi pi-shopping-cart mr-2"></i>
+          <span>Покупки</span>
+        </ng-template>
+        <app-shopping-list></app-shopping-list>
+      </p-tabPanel>
+      <p-tabPanel >
+        <ng-template pTemplate="header">
+          <i class="pi pi-calendar mr-2"></i>
+          <span>Записи</span>
+        </ng-template>
+        <app-notes-list></app-notes-list>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
 </div>
+

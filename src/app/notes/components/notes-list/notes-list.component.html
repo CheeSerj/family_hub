@@ -1,0 +1,10 @@
+<ng-container *ngIf="notes | async">
+  <div *ngFor="let qwerty of test.notes; let i = index">
+    <form class="flex align-items-center" [formGroup]="formGroup">
+      <p-card styleClass="w-18rem test px-1" class="flex align-items-center mb-2 ">
+      <p-checkbox class="checkbox-in-note-list mr-2" [value]="qwerty?.status"></p-checkbox>
+      <span class="mr-2 text-base font-semibold">{{qwerty?.note}}</span>
+      </p-card>
+    </form>
+  </div>
+</ng-container>

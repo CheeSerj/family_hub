@@ -1,0 +1,27 @@
+.checkbox-in-note-list{
+  .p-checkbox .p-checkbox-box{
+    border-radius: 10px;
+  }
+  .p-checkbox .p-checkbox-box.p-highlight{
+    background: var(--indigo-300);
+    border-color: var(--indigo-200);
+  }
+
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover{
+    background: var(--indigo-300);
+    border-color: var(--indigo-200);
+  }
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:focus{
+    border-color: var(--indigo-200);
+    box-shadow: none;
+  }
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover{
+    border-color: var(--indigo-200);
+  }
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem var(--indigo-100);
+    border-color: var(--indigo-200);
+  }
+}
