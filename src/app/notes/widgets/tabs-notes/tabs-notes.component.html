@@ -1,0 +1,23 @@
+<p-tabView styleClass="tabview-custom mx-2 my-4 mb-5 text-xs">
+  <p-tabPanel >
+    <ng-template pTemplate="header">
+      <i class="pi pi-file-edit mr-2"></i>
+      <span>Заметки</span>
+    </ng-template>
+    <app-notes-list></app-notes-list>
+  </p-tabPanel>
+  <p-tabPanel header="Header II">
+    <ng-template pTemplate="header">
+      <i class="pi pi-shopping-cart mr-2"></i>
+      <span>Покупки</span>
+    </ng-template>
+    <app-shopping-list></app-shopping-list>
+  </p-tabPanel>
+  <p-tabPanel >
+    <ng-template pTemplate="header">
+      <i class="pi pi-calendar mr-2"></i>
+      <span>Записи</span>
+    </ng-template>
+    <app-appointment></app-appointment>
+  </p-tabPanel>
+</p-tabView>

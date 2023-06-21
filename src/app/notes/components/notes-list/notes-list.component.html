@@ -1,10 +1,19 @@
-<ng-container *ngIf="notes | async">
-  <div *ngFor="let qwerty of test.notes; let i = index">
-    <form class="flex align-items-center" [formGroup]="formGroup">
-      <p-card styleClass="w-18rem test px-1" class="flex align-items-center mb-2 ">
-      <p-checkbox class="checkbox-in-note-list mr-2" [value]="qwerty?.status"></p-checkbox>
-      <span class="mr-2 text-base font-semibold">{{qwerty?.note}}</span>
-      </p-card>
-    </form>
+<ng-container *ngIf="notes | async as test">
+  <div   *ngFor="let qwerty of test[0].notes; let i = index">
+  <form class="flex align-items-center flex-column" [formGroup]="formGroup">
+    <p-card styleClass="w-18rem test px-1"
+            class="flex align-items-center justify-content-between mb-2 "
+            formArrayName="notesArr"
+    >
+      <div [formGroupName]="i" class="flex justify-content-between">
+        <p-checkbox class="checkbox-in-note-list align-items-start mr-2" formControlName="status" [disabled]="qwerty.status" [binary]="true"></p-checkbox>
+        <span class="mr-2 text-base font-semibold flex align-items-start justify-content-center">{{qwerty.note}}</span>
+        <div class="flex">
+          <p-button icon="pi pi-pencil" class="flex align-items-start edit-note" styleClass="p-button-danger p-button-text focus-drop"></p-button>
+          <p-button icon="pi pi-trash" (onClick)="deleteNoteByIndex(i)" class="flex align-items-start edit-note" styleClass="p-button-danger p-button-text focus-drop"></p-button>
+        </div>
+      </div>
+    </p-card>
+  </form>
   </div>
 </ng-container>

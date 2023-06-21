@@ -25,3 +25,12 @@
     border-color: var(--indigo-200);
   }
 }
+
+.edit-note{
+  .p-button.p-button-icon-only{
+    padding: unset;
+  }
+  .p-button.p-button-danger.p-button-text:enabled:hover, .p-buttonset.p-button-danger > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-danger > .p-button.p-button-text:enabled:hover{
+    background: none;
+  }
+}

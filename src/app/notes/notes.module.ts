@@ -10,9 +10,11 @@ import { TabViewModule } from 'primeng/tabview';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
+import { AppointmentComponent } from './components/appointment/appointment.component';
+import { TabsNotesComponent } from './widgets/tabs-notes/tabs-notes.component';
 
 @NgModule({
-  declarations: [NotesComponent, NotesListComponent, ShoppingListComponent],
+  declarations: [NotesComponent, NotesListComponent, ShoppingListComponent, AppointmentComponent, TabsNotesComponent],
   imports: [CommonModule, MatToolbarModule, ButtonModule, RouterModule, TabViewModule, CheckboxModule, ReactiveFormsModule, CardModule]
 })
 export class NotesModule {}
