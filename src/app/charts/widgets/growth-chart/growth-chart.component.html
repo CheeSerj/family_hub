@@ -1,5 +1,10 @@
-<ng-container *ngIf="chartGrowthAxisData | async">
-<div class="card p-2">
+<ng-container *ngIf="chartGrowthAxisData | async ; else skeleton">
+<div class="card-chart p-2">
   <p-chart type="bar" [data]="multiAxisData" [options]="multiAxisOptions"></p-chart>
 </div>
 </ng-container>
+
+
+<ng-template #skeleton>
+    <p-skeleton width="20rem" height="10rem" borderRadius="16px" styleClass="mb-2" class="skeleton-chart"></p-skeleton>
+</ng-template>

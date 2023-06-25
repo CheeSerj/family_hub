@@ -3,12 +3,20 @@
     <p-button icon="pi pi-arrow-circle-left"
               class="notes-buttons justify-content-start"
               routerLink="/"
-              styleClass=" mr-3">
+              styleClass=" mr-3 mb-2">
     </p-button>
     <h2 class="flex align-items-center w-full mr-5 justify-content-center">Заметки</h2>
   </mat-toolbar>
-  <div class="flex test my-6 mx-3">
+  <div class="flex test mt-3 mb-3 mx-3">
    <app-tabs-notes></app-tabs-notes>
+  </div>
+  <div class="flex align-items-center">
+    <p-button icon="pi pi-plus"
+              label="Добавить запись"
+              styleClass=" w-21rem  mb-6"
+              (onClick)="openDialogForAddData()"
+              class="notes-buttons">
+    </p-button>
   </div>
 </div>
 

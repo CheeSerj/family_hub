@@ -1,19 +1,51 @@
-<ng-container *ngIf="notes | async as test">
-  <div   *ngFor="let qwerty of test[0].notes; let i = index">
-  <form class="flex align-items-center flex-column" [formGroup]="formGroup">
+<ng-container *ngIf="notes | async as notesList ; else skeleton">
+  <div   *ngFor="let note of notesList[0].notes; let i = index">
+  <form class="flex align-items-center flex-column" [formGroup]="checkBoxForm">
     <p-card styleClass="w-18rem test px-1"
             class="flex align-items-center justify-content-between mb-2 "
             formArrayName="notesArr"
     >
       <div [formGroupName]="i" class="flex justify-content-between">
-        <p-checkbox class="checkbox-in-note-list align-items-start mr-2" formControlName="status" [disabled]="qwerty.status" [binary]="true"></p-checkbox>
-        <span class="mr-2 text-base font-semibold flex align-items-start justify-content-center">{{qwerty.note}}</span>
+        <p-checkbox class="checkbox-in-note-list align-items-start mr-2"
+                    formControlName="status"
+                    [disabled]="note.status"
+                    [binary]="true">
+        </p-checkbox>
+        <div class="flex" [formGroup]="editForm">
+          <input *ngIf="noteEdit && i === selectedItem"
+                 [value]="note?.note"
+                 formControlName="note"
+                 class="w-10rem h-2rem flex align-items-center"
+          >
+          <span *ngIf="!noteEdit || i !== selectedItem" class="mr-2 text-base font-semibold flex align-items-start justify-content-center">{{note.note}}</span>
+        </div>
         <div class="flex">
-          <p-button icon="pi pi-pencil" class="flex align-items-start edit-note" styleClass="p-button-danger p-button-text focus-drop"></p-button>
-          <p-button icon="pi pi-trash" (onClick)="deleteNoteByIndex(i)" class="flex align-items-start edit-note" styleClass="p-button-danger p-button-text focus-drop"></p-button>
+          <p-button icon="pi pi-pencil"
+                    *ngIf="!noteEdit || i !== selectedItem"
+                    (onClick)="test2(note, i)"
+                    class="flex align-items-start edit-note"
+                    styleClass="p-button-danger p-button-text focus-drop">
+          </p-button>
+          <p-button icon="pi pi-check"
+                    *ngIf="noteEdit && i === selectedItem"
+                    (onClick)="editNoteById(note, i)"
+                    class="flex align-items-start edit-note"
+                    styleClass="p-button-success p-button-text focus-drop">
+          </p-button>
+          <p-button icon="pi pi-trash"
+                    (onClick)="deleteNoteByIndex(i)"
+                    class="flex align-items-start edit-note"
+                    styleClass="p-button-danger p-button-text focus-drop">
+          </p-button>
         </div>
       </div>
     </p-card>
   </form>
   </div>
 </ng-container>
+
+<ng-template #skeleton>
+  <div *ngFor="let _ of [].constructor(7)">
+    <p-skeleton width="18rem" height="4rem" borderRadius="16px" styleClass="mb-2"></p-skeleton>
+  </div>
+</ng-template>

@@ -12,7 +12,7 @@
 
 @import "src/app/app.component";
 
-.card {
+.card-chart {
   width: 320px;
   height: 172px;
   @include card;
@@ -72,5 +72,10 @@
   .p-inputswitch .p-focus .p-inputswitch-slider{
     box-shadow: none !important;
   }
+}
 
+.skeleton-chart{
+  .p-skeleton{
+    background-color: #d6f1ee !important;
+  }
 }

@@ -12,9 +12,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { TabsNotesComponent } from './widgets/tabs-notes/tabs-notes.component';
+import { SkeletonModule } from 'primeng/skeleton';
+import { ModalAddDataForNotesComponent } from './components/modal-add-data-for-notes/modal-add-data-for-notes.component';
 
 @NgModule({
-  declarations: [NotesComponent, NotesListComponent, ShoppingListComponent, AppointmentComponent, TabsNotesComponent],
-  imports: [CommonModule, MatToolbarModule, ButtonModule, RouterModule, TabViewModule, CheckboxModule, ReactiveFormsModule, CardModule]
+  declarations: [NotesComponent, NotesListComponent, ShoppingListComponent, AppointmentComponent, TabsNotesComponent, ModalAddDataForNotesComponent],
+  imports: [CommonModule, MatToolbarModule, ButtonModule, RouterModule, TabViewModule, CheckboxModule, ReactiveFormsModule, CardModule, SkeletonModule]
 })
 export class NotesModule {}

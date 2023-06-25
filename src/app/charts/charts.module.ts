@@ -14,6 +14,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { ModalAddDataForChartsComponent } from './components';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @NgModule({
   declarations: [ChartsLayoutComponent, GrowthChartComponent, WeightChartComponent, CalendarLeapsInEvolutionsComponent, ModalAddDataForChartsComponent],
@@ -28,7 +29,8 @@ import { InputTextModule } from 'primeng/inputtext';
     InputSwitchModule,
     DropdownModule,
     ReactiveFormsModule,
-    InputTextModule
+    InputTextModule,
+    SkeletonModule
   ]
 })
 export class ChartsModule {}
