@@ -1,0 +1,56 @@
+<div class="flex align-items-center justify-content-center h-full">
+  <div class="login flex align-items-center justify-content-center" [formGroup]="loginForm">
+
+    <div class="login__content p-3 w-full flex align-items-center justify-content-start flex-column">
+
+      <h2>{{titleForCard}}</h2>
+
+      <div class="form">
+
+          <div class="flex mb-2 w-full">
+            <span class="p-float-label">
+              <input pInputText id="username" type="email" class="w-17rem" [required]="true" formControlName="email" [(ngModel)]="value" />
+              <label htmlFor="username">Email</label>
+            </span>
+          </div>
+
+
+
+          <p-password promptLabel="Введите пароль"
+                      [strongLabel]="translateLabelPassword.strongLabel"
+                      [mediumLabel]="translateLabelPassword.mediumLabel"
+                      [weakLabel]="translateLabelPassword.weakLabel"
+                      formControlName="password"
+                      class="w-full"
+          styleClass="w-full">
+            <ng-template pTemplate="footer">
+              <p-divider></p-divider>
+              <p class="mt-2">Предложения</p>
+              <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                <li>Хотя бы одна строчная буква</li>
+                <li>Хотя бы одна заглавная буква</li>
+                <li>Хотя бы одно число</li>
+                <li>Минимум 8 символов</li>
+              </ul>
+            </ng-template>
+          </p-password>
+
+        </div>
+
+        <div class="links flex px-4 py-2 w-full justify-content-between">
+          <a href="#">Забыли пароль?</a>
+          <a href="register">Зарегистрироваться</a>
+        </div>
+
+
+      <div class="flex align-items-center justify-content-start w-full px-4">
+
+        <p-button styleClass="w-17rem" [label]="titleForButton" (onClick)="submitForm()"></p-button>
+
+      </div>
+      </div>
+
+
+    </div>
+
+</div>

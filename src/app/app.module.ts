@@ -21,6 +21,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { TabbarModule } from './tabbar/tabbar.module';
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -41,7 +44,9 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     ToastModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirestore(() => getFirestore()),
-    provideFirebaseApp(() => initializeApp(environment.firebase))
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    TabbarModule,
+    AuthModule
   ],
   providers: [
     MessageService,

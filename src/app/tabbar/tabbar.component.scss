@@ -1,0 +1,27 @@
+.tabs{
+  position: absolute;
+  bottom: 10px;
+}
+
+.tabmenu{
+  .p-tabmenu{
+    border-radius: 10px !important;
+    box-shadow: 0px 17px 20px 8px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+  }
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus{
+  box-shadow: none;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link{
+  background: rgba(59, 61, 225, 0.11) !important;
+}
+.p-tabmenu .p-tabmenu-nav{
+  background: transparent !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+  background: rgba(163, 164, 255, 0.11) !important;
+}
